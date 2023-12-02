@@ -1,0 +1,12 @@
+{
+  "name": "gwala",
+  "version": "1.0.0",
+  "description": "",
+  "private":"true",
+  "scripts": {
+    "client": "pnpm --filter client",
+    "server": "pnpm --filter server"
+  },
+  "keywords": [],
+  "author": "Youness Hassoune"
+}
