@@ -1,5 +1,6 @@
-import { pre, prop } from "@typegoose/typegoose";
+import { Ref, pre, prop } from "@typegoose/typegoose";
 import mongoose from "mongoose";
+import { Session } from "./session.model";
 
 @pre<User>("save", function () {
   this._id = new mongoose.Types.ObjectId();
@@ -19,4 +20,8 @@ export class User {
 
   @prop({type: String})
   public avatar?: string;
+
+  
+  @prop({ ref: () => Session, default: [] })
+  public sessions?: Ref<Session>[];
 }

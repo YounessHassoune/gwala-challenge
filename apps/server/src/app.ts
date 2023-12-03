@@ -4,9 +4,9 @@ import { corsConfig, limiterConfig } from "./config";
 import rateLimit from "express-rate-limit";
 import cookieParser from "cookie-parser";
 import database from "./config/database";
-import { resFailed, resSuccess } from "./helpers/response.helper";
 import authRoute from "./routes/auth.route";
 import { handleError, notFound } from "./middlewares/error.middleware";
+import helmet from "helmet";
 
 /**
  * @description Init express application
@@ -20,6 +20,7 @@ const init = function (): Application {
   database();
 
   // * Middlewares
+  app.use(helmet());
   app.use(cors(corsConfig()));
   app.use(rateLimit(limiterConfig()));
   app.use(cookieParser());
