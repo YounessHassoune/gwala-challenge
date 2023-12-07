@@ -1,10 +1,14 @@
-import { Button } from "./components/ui/button";
+import { AppProvider } from "@/providers/app";
+import { AppRoutes } from "@/routes";
+import { hydrateAuth } from "./store/auth";
+
+hydrateAuth();
 
 function App() {
   return (
-    <div>
-      <Button>Click me</Button>
-    </div>
+    <AppProvider>
+      <AppRoutes />
+    </AppProvider>
   );
 }
 
